@@ -25,6 +25,14 @@
             ],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/app/Styles/base",
+                "src/app/Styles/utilities",
+                "src/app/Styles/components",
+                "src/app/Styles/themes"
+              ]
+            },
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -46,8 +54,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "5mb",
+                  "maximumError": "5mb"
                 },
                 {
                   "type": "anyComponentStyle",

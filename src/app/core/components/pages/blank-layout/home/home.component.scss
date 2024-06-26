@@ -1,0 +1,13 @@
+@import "variables";
+.imageContainer {
+  height: 300px;
+  width: 100%;
+}
+
+.Categorie__Container {
+  border: 1px solid $secondary-color;
+  transition: 0.3s all;
+  &:hover {
+    background-color: $main-color;
+  }
+}

@@ -1,0 +1,38 @@
+@import "variables";
+.btn {
+  background-color: transparent;
+  border: transparent;
+}
+.btn-main {
+  background-color: $main-color;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 100vh;
+  &:hover {
+    filter: brightness(110%);
+    color: white;
+    background-color: $secondary-color !important;
+  }
+}
+.btn-main-secondary {
+  background-color: $secondary-color;
+  color: $main-color;
+  padding: 5px 15px;
+  border-radius: 100vh;
+  &.btn:hover {
+    filter: brightness(110%);
+    background-color: black !important;
+    color: white;
+  }
+}
+
+.btn-outline-main {
+  border: 2px solid $main-color;
+  border-radius: 100vh;
+  color: $main-color;
+  transition: 0.3s All;
+  &:hover {
+    background-color: $main-color;
+    color: white;
+  }
+}
