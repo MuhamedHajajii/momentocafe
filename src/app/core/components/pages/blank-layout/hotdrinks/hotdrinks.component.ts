@@ -12,6 +12,11 @@ import { RouterLink } from '@angular/router';
 export class HotdrinksComponent {
   hotcoffees = [
     {
+      name: '',
+      price1: 'Small',
+      price2: 'Double',
+    },
+    {
       name: 'Turkish coffee',
       price1: '25',
       price2: '33',

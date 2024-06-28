@@ -1,2 +1,0 @@
-import './polyfills.server.mjs';
-import{Ja as o,Ka as r,Na as a,Qa as s,R as i}from"./chunk-KO7MATNQ.mjs";import"./chunk-VVCT4QZE.mjs";var m=(()=>{let e=class e{};e.\u0275fac=function(n){return new(n||e)},e.\u0275cmp=i({type:e,selectors:[["app-freshjuice"]],standalone:!0,features:[s],decls:2,vars:0,template:function(n,p){n&1&&(o(0,"p"),a(1,"freshjuice works!"),r())}});let t=e;return t})();export{m as FreshjuiceComponent};
