@@ -1,23 +1,25 @@
 <section>
   <div class="container-fluid">
     <div>
-      <div class="d-flex justify-content-evenly align-items-center my-3 py-3">
-        <button class="px-5 py-2 btn btn-main">Menu</button>
-        <button class="px-5 py-2 btn btn-main">delivers</button>
-      </div>
       <div class="row">
         @for (item of mainMenuCatigries; track $index) {
-        <div class="col-6 col-md-4 col-lg-3 p-3">
+        <div class="col-12 col-md-4 col-lg-3 p-2 p-lg-4">
           <div
             class="Categorie__Container rounded-3 h-100"
             role="button"
             tabindex="0"
+            [routerLink]="item.link"
           >
-            <div class="imageContainer ratio ratio-21x9">
-              <img [ngSrc]="item.img" alt="menu page 1" fill priority />
+            <div class="imageContainer ratio ratio-4x3">
+              <img
+                [ngSrc]="item.img"
+                [alt]="item.name"
+                class="object-fit-cover rounded-3"
+                fill
+              />
             </div>
             <p
-              class="text-center rounded-pill Bg-Secondary w-75 mx-auto text-white py-3 px-3"
+              class="text-center text-uppercase rounded-pill Bg-Secondary w-75 mx-auto text-white py-3 px-3 fw-bold h4 mt-3"
             >
               {{ item.name }}
             </p>
