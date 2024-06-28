@@ -1,5 +1,11 @@
 {
   "routes": [
-    "/"
+    "/",
+    "/boxes",
+    "/cocktail",
+    "/freshjuice",
+    "/hotdrinks",
+    "/milkshakes",
+    "/tea"
   ]
 }

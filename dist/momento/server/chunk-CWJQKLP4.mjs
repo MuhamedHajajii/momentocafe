@@ -1,0 +1,2 @@
+import './polyfills.server.mjs';
+import{Ja as i,Ka as a,Na as r,Qa as s,R as o}from"./chunk-KO7MATNQ.mjs";import"./chunk-VVCT4QZE.mjs";var d=(()=>{let e=class e{};e.\u0275fac=function(n){return new(n||e)},e.\u0275cmp=o({type:e,selectors:[["app-boxes"]],standalone:!0,features:[s],decls:2,vars:0,template:function(n,c){n&1&&(i(0,"p"),r(1,"boxes works!"),a())}});let t=e;return t})();export{d as BoxesComponent};
