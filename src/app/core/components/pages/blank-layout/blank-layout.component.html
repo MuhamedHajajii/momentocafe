@@ -5,7 +5,25 @@
 <!-- =========================================== -->
 <!-- Content Main  -->
 <!-- =========================================== -->
-<router-outlet></router-outlet>
+<div class="flex-grow-1">
+  <router-outlet></router-outlet>
+</div>
 <footer>
   <app-footer></app-footer>
 </footer>
+
+@if (isLightBox) {
+<div class="lightBoxContainer" (click)="toggleLightBox()">
+  <div
+    (click)="stopProp($event)"
+    class="ligtBoxContent d-flex flex-column justify-content-evenly align-items-center rounded-4 p-4 position-relative"
+  >
+    <button
+      (click)="toggleLightBox()"
+      class="btn-close position-absolute top-0 end-0 m-3"
+    ></button>
+    <button>Order Online <i class="fa-solid fa-earth-americas"></i></button>
+    <button>Call Us <i class="fa-solid fa-headset"></i></button>
+  </div>
+</div>
+}

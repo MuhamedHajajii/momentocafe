@@ -1,21 +1,26 @@
 <header>
   <div class="container-fluid">
     <div
-      class="py-2 border-bottom border-1 d-flex justify-content-end align-items-center"
+      class="py-2 border-bottom border-1 d-flex justify-content-center align-items-center"
     >
-      <!-- <div class="text-center">
-        <h1 class="h1 Text-Main">Sweeten Your Day With Momento</h1>
-      </div> -->
       <ul
         class="list-unstyled p-0 m-0 d-flex align-items-center justify-content-end"
       >
+        <li
+          routerLink="feedback"
+          role="button"
+          class="btn-outline-main mx-1 text-warning"
+        >
+          Rate Us
+          <i class="fa-solid fa-star"></i>
+        </li>
         <li class="nav-item dropdown">
           <button
             class=""
             role="button"
             data-bs-toggle="dropdown"
             aria-expanded="false"
-            class="btn-outline-main mx-2 dropdown-toggle"
+            class="btn-outline-main mx-1 dropdown-toggle"
           >
             Careers
           </button>
@@ -24,12 +29,11 @@
           </ul>
         </li>
         <li>
-          <button class="btn-outline-main mx-2">sign up</button>
+          <button class="btn-outline-main mx-1">signup</button>
         </li>
         <li>
-          <button class="btn-main mx-2">sign in</button>
+          <button class="btn-main mx-1">signin</button>
         </li>
-        <li></li>
       </ul>
     </div>
   </div>
@@ -37,39 +41,17 @@
     <ul
       class="list-unstyled p-0 m-0 d-flex align-items-center justify-content-lg-evenly justify-content-between px-2 py-2 border-bottom border-1"
     >
-      <li class="navLink d-block d-lg-none">
+      <li routerLink="/menu" class="navLink">
         <button class="btn fs-3 Text-Secondary">
           <i class="fa-solid fa-bars fs-1"></i>
         </button>
-      </li>
-      <li class="navLink d-none d-lg-block">
-        <button class="btn fs-3 Text-Secondary">Menu</button>
-      </li>
-      <li class="navLink d-none d-lg-block">
-        <button class="btn fs-3 Text-Secondary">Locations</button>
-      </li>
-      <li class="navLink d-none d-lg-block">
-        <button class="btn fs-3 Text-Secondary">Delivery</button>
       </li>
       <li>
         <a class="nav-link logocontainer mx-auto" routerLink="/">
           <img class="w-100" src="assets/Logo/logo.png" alt="momento logo" />
         </a>
       </li>
-      <li class="navLink d-none d-lg-block">
-        <button class="btn fs-3 Text-Secondary">
-          Momento' <span class="d-block">rewards</span>
-        </button>
-      </li>
-      <li class="navLink d-none d-lg-block">
-        <button class="btn fs-3 Text-Secondary">
-          Momento' <span class="d-block">Card</span>
-        </button>
-      </li>
-      <li class="navLink d-none d-lg-block">
-        <button class="btn fs-3 Text-Secondary">Shop</button>
-      </li>
-      <li class="navLink d-block d-lg-none">
+      <li (click)="toggleLightBox()" class="navLink">
         <button class="btn fs-3 Text-Secondary">
           <i class="fa-solid fa-motorcycle"></i>
         </button>

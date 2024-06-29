@@ -1,32 +1,22 @@
 <section>
-  <div class="container-fluid">
+  <div class="container-fluid my-3">
     <div>
-      <div class="row">
-        @for (item of mainMenuCatigries; track $index) {
-        <div class="col-12 col-md-4 col-lg-3 p-2 p-lg-4">
-          <div
-            class="Categorie__Container rounded-3 h-100"
-            role="button"
-            tabindex="0"
-            [routerLink]="item.link"
-          >
-            <div class="imageContainer ratio ratio-4x3">
+      <div>
+        <owl-carousel-o [options]="customOptions">
+          <ng-container *ngFor="let slide of slidesStore">
+            <ng-template carouselSlide [id]="slide.id">
               <img
-                [ngSrc]="item.img"
-                [alt]="item.name"
-                class="object-fit-cover rounded-3"
-                fill
+                height="400px"
+                class="rounded-3"
+                [src]="slide.src"
+                [alt]="slide.alt"
+                [title]="slide.title"
               />
-            </div>
-            <p
-              class="text-center text-uppercase rounded-pill Bg-Secondary w-75 mx-auto text-white py-3 px-3 fw-bold h4 mt-3"
-            >
-              {{ item.name }}
-            </p>
-          </div>
-        </div>
-        }
+            </ng-template>
+          </ng-container>
+        </owl-carousel-o>
       </div>
+      <app-menu></app-menu>
     </div>
   </div>
 </section>

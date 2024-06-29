@@ -1,13 +1,1 @@
-@import "variables";
-.imageContainer {
-  height: 300px;
-  width: 100%;
-}
 
-.Categorie__Container {
-  border: 1px solid #ff800036;
-  transition: 0.3s all;
-  &:hover {
-    background-color: #ff800036;
-  }
-}

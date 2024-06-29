@@ -1,0 +1,109 @@
+<section class="my-3">
+  <div class="container">
+    <div>
+      <h2
+        class="text-capitalize text-center Bg-Secondary rounded-3 text-white py-1"
+      >
+        we are pleased to serve you ...
+        <i class="fa-solid fa-heart text-danger"></i>
+      </h2>
+      <form [formGroup]="rateForm" (ngSubmit)="onSubmitRateForm()">
+        <div class="mb-3">
+          <label class="form-label" for="name">Your Name</label>
+          <input
+            class="form-control"
+            type="text"
+            id="name"
+            placeholder="name"
+            formControlName="name"
+          />
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="name">Mobile Number</label>
+          <input
+            class="form-control"
+            type="tel"
+            id="mobile"
+            placeholder="mobile"
+            formControlName="mobile"
+          />
+        </div>
+        <div class="row">
+          <div
+            class="mb-3 col-12 row d-flex justify-content-start align-items-center"
+          >
+            <label class="form-label col-2" for="Taste">Taste:</label>
+            <div class="col-10">
+              <p-rating
+                id="Taste"
+                name="Taste"
+                [(ngModel)]="Taste"
+                [cancel]="false"
+                formControlName="Taste"
+              />
+            </div>
+          </div>
+          <div
+            class="mb-3 col-12 row d-flex justify-content-start align-items-center"
+          >
+            <label class="form-label col-2" for="Quality">Quality:</label>
+            <div class="col-10">
+              <p-rating
+                id="Quality"
+                name="Quality"
+                [(ngModel)]="Quality"
+                [cancel]="false"
+                formControlName="Quality"
+              />
+            </div>
+          </div>
+          <div
+            class="mb-3 col-12 row d-flex justify-content-start align-items-center"
+          >
+            <label class="form-label col-2" for="Place">Place:</label>
+            <div class="col-10">
+              <p-rating
+                id="Place"
+                name="Place"
+                [(ngModel)]="Place"
+                [cancel]="false"
+                formControlName="Place"
+              />
+            </div>
+          </div>
+          <div
+            class="mb-3 col-12 row d-flex justify-content-start align-items-center"
+          >
+            <label class="form-label col-2" for="Service">Service:</label>
+            <div class="col-10">
+              <p-rating
+                id="Service"
+                name="Service"
+                [(ngModel)]="Service"
+                [cancel]="false"
+                formControlName="Service"
+              />
+            </div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="Comment">Comments:</label>
+            <textarea
+              class="form-control"
+              type="Comment"
+              id="Comment"
+              placeholder="Comments ..."
+              rows="5"
+              formControlName="Comments"
+            ></textarea>
+          </div>
+        </div>
+        <div class="text-center my-2">
+          <button (click)="alertWithSuccess()" class="btn-main">
+            send rate
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+<script src="https://sheetdb.io/s/t/815ts99wm232n.js"></script>
