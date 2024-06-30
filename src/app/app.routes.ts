@@ -50,6 +50,11 @@ export const routes: Routes = [
             './core/components/pages/blank-layout/menu/menu-categories/menu-categories.component'
           ).then((e) => e.MenuCategoriesComponent),
       },
+      {
+        path: '**',
+        redirectTo: '/',
+        pathMatch: 'full',
+      },
     ],
   },
 ];

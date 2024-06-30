@@ -14,7 +14,6 @@ import {
 } from '@angular/common/http';
 import { provideClientHydration } from '@angular/platform-browser';
 import { provideAnimations } from '@angular/platform-browser/animations';
-import { PickListModule } from 'primeng/picklist';
 import { routes } from './app.routes';
 import { loadingSpinnerInterceptor } from './core/interceptors/loading-spinner.interceptor';
 
