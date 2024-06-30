@@ -17,12 +17,4 @@ export class MenuComponent {
   ngOnInit(): void {
     this.Allimages = this._GetMenuDataService.AllImages;
   }
-  gAfterContentChecked(): void {
-    this.Allimages = this._GetMenuDataService.AllImages;
-  }
-  ngAfterViewChecked(): void {
-    this.Allimages = this._GetMenuDataService.AllImages;
-    //Called after every check of the component's view. Applies to components only.
-    //Add 'implements AfterViewChecked' to the class.
-  }
 }

@@ -9,14 +9,8 @@ import { Allimages } from '../interfaces/allimages';
 })
 export class GetMenuDataService {
   constructor(private _HttpClient: HttpClient) {}
-  timestamp = new Date().getTime();
   AllData!: Allmenudata[];
   AllImages!: Allimages;
-  getMenuData(Categorie: string): Observable<any> {
-    return this._HttpClient.get(
-      `https://sheetdb.io/api/v1/s7b40rg2whsx5?sheet=${Categorie}`
-    );
-  }
 
   GetData(): Observable<Allmenudata[]> {
     return this._HttpClient

@@ -68,9 +68,6 @@ export class HomeComponent {
       }, 5000);
     }
   }
-  ngAfterContentChecked(): void {
-    this.BannerImages = this._GetMenuDataService.AllImages;
-  }
 
   /** ======================================== */
   /** Light Box Handle */
