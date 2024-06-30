@@ -61,16 +61,13 @@ export class HomeComponent {
   ) {}
 
   ngOnInit(): void {
-    // this.loadData();
+    this.BannerImages = this._GetMenuDataService.AllImages;
     if (this.document.readyState !== 'loading') {
       setTimeout(() => {
         this.toggleLightBox = true;
       }, 5000);
     }
   }
-  // ngAfterViewChecked(): void {
-  //   this.loadData();
-  // }
   ngAfterContentChecked(): void {
     this.BannerImages = this._GetMenuDataService.AllImages;
   }

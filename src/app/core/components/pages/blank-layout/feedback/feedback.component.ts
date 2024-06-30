@@ -44,9 +44,7 @@ export class FeedbackComponent {
         JSON.stringify(this.rateForm.value)
       )
       .subscribe({
-        next: (response) => {
-          console.log(response);
-        },
+        next: (response) => {},
         error: (error) => {
           console.log(error);
         },

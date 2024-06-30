@@ -26,24 +26,25 @@ export class MenuCategoriesComponent {
 
   ngAfterContentChecked(): void {
     this.loadData();
-    this._GetMenuDataService.AllImages.Folder1.map((ele) => {
-      if (ele.Image_Name === this.ActivatedCategory) {
-        this.CurrentImage = ele.Image_Url;
-        console.log(this.CurrentImage);
-      }
-    });
+    if (this._GetMenuDataService.AllImages) {
+      this._GetMenuDataService.AllImages.Folder1.map((ele) => {
+        if (ele.Image_Name === this.ActivatedCategory) {
+          this.CurrentImage = ele.Image_Url;
+        }
+      });
+    }
   }
   get_ActivatedRoute(): void {
     this._ActivatedRoute.paramMap.subscribe({
       next: (response) => {
         this.ActivatedCategory = response.get('id') as string;
-        console.log(response.get('id'));
-        this._GetMenuDataService.AllImages.Folder1.map((ele) => {
-          if (ele.Image_Name === this.ActivatedCategory) {
-            this.CurrentImage = ele.Image_Url;
-            console.log(this.CurrentImage);
-          }
-        });
+        if (this._GetMenuDataService.AllImages) {
+          this._GetMenuDataService.AllImages.Folder1.map((ele) => {
+            if (ele.Image_Name === this.ActivatedCategory) {
+              this.CurrentImage = ele.Image_Url;
+            }
+          });
+        }
       },
     });
   }

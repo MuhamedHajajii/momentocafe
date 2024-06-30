@@ -25,7 +25,6 @@ export class GetMenuDataService {
       )
       .pipe(
         tap((data) => {
-          console.log(data);
           this.AllData = data;
         })
       );
@@ -38,7 +37,6 @@ export class GetMenuDataService {
       )
       .pipe(
         tap((data) => {
-          console.log(data);
           this.AllImages = data;
         })
       );

@@ -14,10 +14,15 @@ import { GetMenuDataService } from '../../../../services/get-menu-data.service';
 export class MenuComponent {
   Allimages!: Allimages;
   constructor(private _GetMenuDataService: GetMenuDataService) {}
-
-  ngAfterContentChecked(): void {
-    if (this._GetMenuDataService.AllImages) {
-      this.Allimages = this._GetMenuDataService.AllImages;
-    }
+  ngOnInit(): void {
+    this.Allimages = this._GetMenuDataService.AllImages;
+  }
+  gAfterContentChecked(): void {
+    this.Allimages = this._GetMenuDataService.AllImages;
+  }
+  ngAfterViewChecked(): void {
+    this.Allimages = this._GetMenuDataService.AllImages;
+    //Called after every check of the component's view. Applies to components only.
+    //Add 'implements AfterViewChecked' to the class.
   }
 }
