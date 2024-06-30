@@ -6,18 +6,17 @@ import {
   withInMemoryScrolling,
 } from '@angular/router';
 
-import { routes } from './app.routes';
-import { provideClientHydration } from '@angular/platform-browser';
 import { IMAGE_CONFIG } from '@angular/common';
 import {
-  BrowserAnimationsModule,
-  provideAnimations,
-} from '@angular/platform-browser/animations';
-import {
-  HttpClientModule,
   provideHttpClient,
   withFetch,
+  withInterceptors,
 } from '@angular/common/http';
+import { provideClientHydration } from '@angular/platform-browser';
+import { provideAnimations } from '@angular/platform-browser/animations';
+import { PickListModule } from 'primeng/picklist';
+import { routes } from './app.routes';
+import { loadingSpinnerInterceptor } from './core/interceptors/loading-spinner.interceptor';
 
 const scrollConfig: InMemoryScrollingOptions = {
   scrollPositionRestoration: 'top',
@@ -31,7 +30,11 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes, inMemoryScrollingFeature),
     provideClientHydration(),
-    provideHttpClient(withFetch()),
+
+    provideHttpClient(
+      withFetch(),
+      withInterceptors([loadingSpinnerInterceptor])
+    ),
     provideAnimations(),
     {
       provide: IMAGE_CONFIG,

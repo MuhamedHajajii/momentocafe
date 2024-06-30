@@ -16,14 +16,25 @@
 <div class="lightBoxContainer" (click)="toggleLightBox()">
   <div
     (click)="stopProp($event)"
-    class="ligtBoxContent d-flex flex-column justify-content-evenly align-items-center rounded-4 p-4 position-relative"
+    class="ligtBoxContent rounded-4 p-4 position-relative"
   >
     <button
       (click)="toggleLightBox()"
       class="btn-close position-absolute top-0 end-0 m-3"
     ></button>
-    <button>Order Online <i class="fa-solid fa-earth-americas"></i></button>
-    <button>Call Us <i class="fa-solid fa-headset"></i></button>
+    <div
+      class="fs-2 d-flex flex-column justify-content-evenly align-items-center"
+    >
+      <button class="my-4" routerLink="/delivery" (click)="toggleLightBox()">
+        Order Online <i class="fa-solid fa-earth-americas"></i>
+      </button>
+      <button class="my-4">Call Us <i class="fa-solid fa-headset"></i></button>
+      <div class="fw-bold">
+        <p>01028057480</p>
+        <p class="text-center">or</p>
+        <p>01222257743</p>
+      </div>
+    </div>
   </div>
 </div>
 }

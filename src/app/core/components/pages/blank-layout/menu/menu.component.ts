@@ -1,45 +1,20 @@
-import { NgOptimizedImage } from '@angular/common';
+import { Allimages } from './../../../../interfaces/allimages';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { GetMenuDataService } from '../../../../services/get-menu-data.service';
 
 @Component({
   selector: 'app-menu',
   standalone: true,
-  imports: [NgOptimizedImage, RouterLink],
+  imports: [NgOptimizedImage, RouterLink, CommonModule],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.scss',
 })
 export class MenuComponent {
-  mainMenuCatigries = [
-    {
-      name: 'Coffees',
-      img: '/assets/home-menu/pngwing.com (1).png',
-      link: '/hotdrinks',
-    },
-    {
-      name: 'Hot Drinks',
-      img: '/assets/home-menu/tea.png',
-      link: '/tea',
-    },
-    {
-      name: 'Milkshakes',
-      img: '/assets/home-menu/MILKSHAKES.png',
-      link: '/milkshakes',
-    },
-    {
-      name: 'Cocktail & Mixes',
-      img: '/assets/home-menu/COCTAIL.png',
-      link: '/cocktail',
-    },
-    {
-      name: 'fresh juice',
-      img: '/assets/home-menu/FRESHJUICE.png',
-      link: '/freshjuice',
-    },
-    {
-      name: 'momento boxes',
-      img: '/assets/home-menu/desserts.png',
-      link: '/boxes',
-    },
-  ];
+  Allimages!: Allimages;
+  constructor(private _GetMenuDataService: GetMenuDataService) {}
+  ngOnInit(): void {
+    this.Allimages = this._GetMenuDataService.AllImages;
+  }
 }

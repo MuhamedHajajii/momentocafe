@@ -1,13 +1,9 @@
 {
   "routes": [
     "/",
-    "/boxes",
-    "/cocktail",
+    "/delivery",
+    "/deliveryAdmin",
     "/feedback",
-    "/freshjuice",
-    "/hotdrinks",
-    "/menu",
-    "/milkshakes",
-    "/tea"
+    "/menu"
   ]
 }

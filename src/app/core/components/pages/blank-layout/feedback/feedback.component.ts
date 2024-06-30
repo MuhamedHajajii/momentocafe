@@ -26,36 +26,46 @@ export class FeedbackComponent {
   Service: number = 0;
 
   rateForm: FormGroup = new FormGroup({
-    id: new FormControl('INCREMENT'),
     name: new FormControl(''),
     mobile: new FormControl(''),
-    Taste: new FormControl(''),
-    Quality: new FormControl(''),
-    Place: new FormControl(''),
-    Service: new FormControl(''),
-    Comments: new FormControl(''),
-    Date: new FormControl(this.d.toLocaleDateString()),
-    Time: new FormControl(this.d.toLocaleTimeString()),
+    taste: new FormControl(''),
+    quality: new FormControl(''),
+    place: new FormControl(''),
+    service: new FormControl(''),
+    comments: new FormControl(''),
+    date: new FormControl(this.d.toLocaleDateString()),
+    time: new FormControl(this.d.toLocaleTimeString()),
   });
 
-  ngOnInit(): void {
-    console.log(this.d.toLocaleDateString());
-    console.log(this.d.toLocaleTimeString());
-  }
-
   onSubmitRateForm(): void {
-    fetch('https://sheetdb.io/api/v1/gmk094xnrva8o', {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        data: [this.rateForm.value],
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => console.log(data));
+    this._HttpClient
+      .post(
+        'https://script.google.com/macros/s/AKfycbyOMy5fDhHxIbmIsG6cEuxH-BGLBa4tcUlZHh39UyuwhMVXg4W8ESiniCX7XK1_LEsH/exec',
+        JSON.stringify(this.rateForm.value)
+      )
+      .subscribe({
+        next: (response) => {
+          console.log(response);
+        },
+        error: (error) => {
+          console.log(error);
+        },
+      });
+    // fetch(
+    //   'https://script.google.com/macros/s/AKfycbyOMy5fDhHxIbmIsG6cEuxH-BGLBa4tcUlZHh39UyuwhMVXg4W8ESiniCX7XK1_LEsH/exec',
+    //   {
+    //     method: 'POST',
+    //     headers: {
+    //       Accept: 'application/json',
+    //       'Content-Type': 'application/json',
+    //     },
+    //     body: JSON.stringify({
+    //       data: [this.rateForm.value],
+    //     }),
+    //   }
+    // )
+    //   .then((response) => response.json())
+    //   .then((data) => console.log(data));
   }
 
   alertWithSuccess() {

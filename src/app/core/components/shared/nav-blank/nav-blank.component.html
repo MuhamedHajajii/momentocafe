@@ -1,20 +1,22 @@
 <header>
   <div class="container-fluid">
-    <div
-      class="py-2 border-bottom border-1 d-flex justify-content-center align-items-center"
+    <ul
+      class="list-unstyled p-0 m-0 d-flex align-items-center justify-content-between py-3 border-bottom border-3"
     >
-      <ul
-        class="list-unstyled p-0 m-0 d-flex align-items-center justify-content-end"
+      <li
+        routerLink="feedback"
+        role="button"
+        class="btn-outline-main mx-1 text-warning"
       >
-        <li
-          routerLink="feedback"
-          role="button"
-          class="btn-outline-main mx-1 text-warning"
-        >
-          Rate Us
-          <i class="fa-solid fa-star"></i>
-        </li>
-        <li class="nav-item dropdown">
+        Rate Us
+        <i class="fa-solid fa-star"></i>
+      </li>
+      <li routerLink="/menu" class="navLink">
+        <button class="btn fs-3 pb-0 Text-Secondary">
+          <i class="fa-solid fa-bars fs-1"></i>
+        </button>
+      </li>
+      <!-- <li class="nav-item dropdown">
           <button
             class=""
             role="button"
@@ -33,29 +35,39 @@
         </li>
         <li>
           <button class="btn-main mx-1">signin</button>
-        </li>
-      </ul>
-    </div>
+        </li> -->
+    </ul>
   </div>
   <nav>
     <ul
-      class="list-unstyled p-0 m-0 d-flex align-items-center justify-content-lg-evenly justify-content-between px-2 py-2 border-bottom border-1"
+      class="list-unstyled p-0 m-0 d-flex align-items-center justify-content-center px-2 pt-3"
     >
-      <li routerLink="/menu" class="navLink">
-        <button class="btn fs-3 Text-Secondary">
-          <i class="fa-solid fa-bars fs-1"></i>
-        </button>
-      </li>
       <li>
         <a class="nav-link logocontainer mx-auto" routerLink="/">
           <img class="w-100" src="assets/Logo/logo.png" alt="momento logo" />
         </a>
       </li>
-      <li (click)="toggleLightBox()" class="navLink">
+      <!-- <div class="d-flex justify-content-start align-items-center">
+        <li
+          role="button"
+          tabindex="0"
+          routerLink="/deliveryAdmin"
+          class="position-relative"
+        >
+          <i
+            class="pi pi-bell text-3xl top-0 start-100 position-absolute"
+            pBadge
+            value="2"
+          ></i>
+          <i class="fa-regular fa-bell fs-2"></i>
+        </li>
+      </div> -->
+
+      <!-- <li (click)="toggleLightBox()" class="navLink">
         <button class="btn fs-3 Text-Secondary">
           <i class="fa-solid fa-motorcycle"></i>
         </button>
-      </li>
+      </li> -->
     </ul>
   </nav>
 </header>

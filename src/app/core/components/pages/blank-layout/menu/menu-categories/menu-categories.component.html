@@ -1,0 +1,43 @@
+@if (AllData) {
+<section class="Bg-Secondary py-5 mt-3">
+  <div class="container text-uppercase">
+    <div class="mb-3 d-flex justify-content-center align-items-center">
+      <div class="bg-white rounded-circle">
+        <img
+          width="75"
+          height="75"
+          [src]="CurrentImage"
+          role="presentation"
+          class="rounded-circle position-relative z-2"
+        />
+      </div>
+      <p class="fs-1 mb-0 ps-4 pe-3 bg-white rounded-end-pill">
+        {{ ActivatedCategory }}
+      </p>
+    </div>
+    @for (item of AllData | categories:ActivatedCategory; track $index) { @for
+    (item of item.Items; track $index) {
+    <div class="row text-center border-bottom animateOnLog">
+      <p class="bg-white col-8 fs-6 mb-0">
+        {{ item.Name }}
+        <span class="d-block fs-6 Text-Secondary">{{ item.Description }}</span>
+      </p>
+      <p
+        class="bg-white col-2 fs-6 mb-0 d-flex justify-content-center align-items-center"
+      >
+        {{ item.Small_Price }}
+      </p>
+      <p
+        class="bg-white col-2 fs-6 mb-0 d-flex justify-content-center align-items-center"
+      >
+        {{ item.Double_Price }}
+      </p>
+    </div>
+    } }
+    <!-- <button routerLink="/menu" class="fs-1 mt-2">
+      <i class="fa-solid fa-right-to-bracket fa-flip-horizontal"></i> Back
+    </button> -->
+  </div>
+</section>
+}
+<app-menu></app-menu>

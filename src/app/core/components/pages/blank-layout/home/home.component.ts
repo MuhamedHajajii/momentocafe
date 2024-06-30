@@ -1,8 +1,10 @@
-import { CommonModule, NgOptimizedImage } from '@angular/common';
-import { Component } from '@angular/core';
+import { CommonModule, DOCUMENT, NgOptimizedImage } from '@angular/common';
+import { Component, Inject, NgZone } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
+import { GetMenuDataService } from '../../../../services/get-menu-data.service';
 import { MenuComponent } from '../menu/menu.component';
+import { Allimages } from './../../../../interfaces/allimages';
 
 @Component({
   selector: 'app-home',
@@ -18,6 +20,10 @@ import { MenuComponent } from '../menu/menu.component';
   styleUrl: './home.component.scss',
 })
 export class HomeComponent {
+  showOwle: boolean = true;
+  toggleLightBox: boolean = false;
+  BannerImages!: Allimages;
+  AdsVideo!: any;
   customOptions: OwlOptions = {
     loop: true,
     mouseDrag: true,
@@ -43,36 +49,37 @@ export class HomeComponent {
     },
     nav: false,
   };
-  slidesStore = [
-    {
-      id: '1',
-      alt: 'bannar one',
-      title: 'bannar one',
-      src: '/assets/banaers/1.jpg',
-    },
-    {
-      id: '12',
-      alt: 'bannar two',
-      title: 'bannar two',
-      src: '/assets/banaers/2.jpg',
-    },
-    {
-      id: '3',
-      alt: 'bannar three',
-      title: 'bannar three',
-      src: '/assets/banaers/3.jpg',
-    },
-    {
-      id: '4',
-      alt: 'bannar four',
-      title: 'bannar four',
-      src: '/assets/banaers/4.jpg',
-    },
-    {
-      id: '4',
-      alt: 'bannar four',
-      title: 'bannar four',
-      src: '/assets/banaers/4.jpg',
-    },
-  ];
+
+  done(): void {
+    this.showOwle = false;
+  }
+
+  constructor(
+    @Inject(DOCUMENT) private document: Document,
+    private _GetMenuDataService: GetMenuDataService,
+    private ngZone: NgZone
+  ) {}
+
+  ngOnInit(): void {
+    this.loadData();
+    if (this.document.readyState !== 'loading') {
+      setTimeout(() => {
+        this.toggleLightBox = true;
+      }, 5000);
+    }
+  }
+  loadData(): void {
+    this.BannerImages = this._GetMenuDataService.AllImages;
+  }
+  /** ======================================== */
+  /** Light Box Handle */
+  /** ======================================== */
+  onToggleLightBox(): void {
+    this.toggleLightBox = !this.toggleLightBox;
+  }
+  stopProp(e: Event): void {
+    e.stopPropagation();
+  }
+  /** ======================================== */
+  /** ======================================== */
 }

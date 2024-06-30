@@ -1,16 +1,18 @@
+@if (Allimages) {
+<h3 class="text-center Text-Main my-3">Menu</h3>
 <div class="row">
-  @for (item of mainMenuCatigries; track $index) {
+  @for (item of Allimages.Folder1; track $index) {
   <div class="col-4 col-md-4 col-lg-3 p-2 p-lg-4">
     <div
       class="Categorie__Container rounded-3 h-100"
       role="button"
       tabindex="0"
-      [routerLink]="item.link"
+      [routerLink]="['/menu-categories', item.Image_Name]"
     >
       <div class="imageContainer ratio ratio-4x3">
         <img
-          [ngSrc]="item.img"
-          [alt]="item.name"
+          [ngSrc]="item.Image_Url"
+          [alt]="item.Image_Name"
           class="object-fit-contain rounded-3"
           fill
         />
@@ -18,9 +20,11 @@
       <p
         class="text-center text-uppercase rounded-pill Bg-Secondary w-75 mx-auto text-white py-3 px-3 fw-bold h4 mt-3 main_Text"
       >
-        {{ item.name }}
+        {{ item.Image_Name }}
       </p>
     </div>
   </div>
   }
 </div>
+
+}

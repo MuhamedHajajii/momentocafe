@@ -23,53 +23,32 @@ export const routes: Routes = [
           ).then((e) => e.MenuComponent),
       },
       {
-        path: 'boxes',
-        loadComponent: () =>
-          import(
-            './core/components/pages/blank-layout/menu/boxes/boxes.component'
-          ).then((e) => e.BoxesComponent),
-      },
-      {
-        path: 'cocktail',
-        loadComponent: () =>
-          import(
-            './core/components/pages/blank-layout/menu/cocktail/cocktail.component'
-          ).then((e) => e.CocktailComponent),
-      },
-      {
-        path: 'freshjuice',
-        loadComponent: () =>
-          import(
-            './core/components/pages/blank-layout/menu/freshjuice/freshjuice.component'
-          ).then((e) => e.FreshjuiceComponent),
-      },
-      {
-        path: 'hotdrinks',
-        loadComponent: () =>
-          import(
-            './core/components/pages/blank-layout/menu/hotdrinks/hotdrinks.component'
-          ).then((e) => e.HotdrinksComponent),
-      },
-      {
-        path: 'milkshakes',
-        loadComponent: () =>
-          import(
-            './core/components/pages/blank-layout/menu/milkshakes/milkshakes.component'
-          ).then((e) => e.MilkshakesComponent),
-      },
-      {
-        path: 'tea',
-        loadComponent: () =>
-          import(
-            './core/components/pages/blank-layout/menu/tea/tea.component'
-          ).then((e) => e.TeaComponent),
-      },
-      {
         path: 'feedback',
         loadComponent: () =>
           import(
             './core/components/pages/blank-layout/feedback/feedback.component'
           ).then((e) => e.FeedbackComponent),
+      },
+      {
+        path: 'delivery',
+        loadComponent: () =>
+          import(
+            './core/components/pages/blank-layout/delivery/delivery-form/delivery-form.component'
+          ).then((e) => e.DeliveryFormComponent),
+      },
+      {
+        path: 'deliveryAdmin',
+        loadComponent: () =>
+          import(
+            './core/components/pages/blank-layout/delivery/delivery-adminstration/delivery-adminstration.component'
+          ).then((e) => e.DeliveryAdminstrationComponent),
+      },
+      {
+        path: 'menu-categories/:id',
+        loadComponent: () =>
+          import(
+            './core/components/pages/blank-layout/menu/menu-categories/menu-categories.component'
+          ).then((e) => e.MenuCategoriesComponent),
       },
     ],
   },

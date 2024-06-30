@@ -1,0 +1,23 @@
+<section>
+  <div class="container">
+    <form [formGroup]="deliveryForm" (ngSubmit)="onSubmit()">
+      <div class="my-3">
+        <div class="d-flex justify-content-between align-items-center">
+          <label class="form-label" for="CustomerName">Name:</label>
+          <p class="fw-bold mb-0 text-danger">Required*</p>
+        </div>
+        <input
+          class="form-control is-invalid"
+          type="text"
+          name="CustomerName"
+          id="CustomerName"
+          placeholder="e.g. name"
+        />
+      </div>
+      <div></div>
+      <div>
+        <button class="btn-main">Make Order</button>
+      </div>
+    </form>
+  </div>
+</section>
