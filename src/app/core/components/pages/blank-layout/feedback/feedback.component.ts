@@ -51,21 +51,6 @@ export class FeedbackComponent {
           console.log(error);
         },
       });
-    // fetch(
-    //   'https://script.google.com/macros/s/AKfycbyOMy5fDhHxIbmIsG6cEuxH-BGLBa4tcUlZHh39UyuwhMVXg4W8ESiniCX7XK1_LEsH/exec',
-    //   {
-    //     method: 'POST',
-    //     headers: {
-    //       Accept: 'application/json',
-    //       'Content-Type': 'application/json',
-    //     },
-    //     body: JSON.stringify({
-    //       data: [this.rateForm.value],
-    //     }),
-    //   }
-    // )
-    //   .then((response) => response.json())
-    //   .then((data) => console.log(data));
   }
 
   alertWithSuccess() {

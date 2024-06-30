@@ -61,16 +61,20 @@ export class HomeComponent {
   ) {}
 
   ngOnInit(): void {
-    this.loadData();
+    // this.loadData();
     if (this.document.readyState !== 'loading') {
       setTimeout(() => {
         this.toggleLightBox = true;
       }, 5000);
     }
   }
-  loadData(): void {
+  // ngAfterViewChecked(): void {
+  //   this.loadData();
+  // }
+  ngAfterContentChecked(): void {
     this.BannerImages = this._GetMenuDataService.AllImages;
   }
+
   /** ======================================== */
   /** Light Box Handle */
   /** ======================================== */

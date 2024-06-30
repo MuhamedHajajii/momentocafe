@@ -9,7 +9,7 @@ import { Allimages } from '../interfaces/allimages';
 })
 export class GetMenuDataService {
   constructor(private _HttpClient: HttpClient) {}
-
+  timestamp = new Date().getTime();
   AllData!: Allmenudata[];
   AllImages!: Allimages;
   getMenuData(Categorie: string): Observable<any> {
@@ -21,7 +21,7 @@ export class GetMenuDataService {
   GetData(): Observable<Allmenudata[]> {
     return this._HttpClient
       .get<Allmenudata[]>(
-        'https://script.google.com/macros/s/AKfycbwoq3YmKn47pBKhUtqPfVSHu3Ub0Fcjirsi14PUP_zDwUM26mX3PF7HpFP5HDVPoj-M/exec'
+        `https://script.google.com/macros/s/AKfycbwoq3YmKn47pBKhUtqPfVSHu3Ub0Fcjirsi14PUP_zDwUM26mX3PF7HpFP5HDVPoj-M/exec?timestamp=${this.timestamp}`
       )
       .pipe(
         tap((data) => {
@@ -34,7 +34,7 @@ export class GetMenuDataService {
   GetImages(): Observable<Allimages> {
     return this._HttpClient
       .get<Allimages>(
-        'https://script.google.com/macros/s/AKfycbxjSZdumyx5ohUa1ezT4eya7jZR56Fu3yYJ1V77qrbFOnlkCVagzeCPMJfUrUFi73tk/exec'
+        `https://script.google.com/macros/s/AKfycbxjSZdumyx5ohUa1ezT4eya7jZR56Fu3yYJ1V77qrbFOnlkCVagzeCPMJfUrUFi73tk/exec?timestamp=${this.timestamp}`
       )
       .pipe(
         tap((data) => {

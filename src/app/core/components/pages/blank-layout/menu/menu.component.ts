@@ -14,7 +14,10 @@ import { GetMenuDataService } from '../../../../services/get-menu-data.service';
 export class MenuComponent {
   Allimages!: Allimages;
   constructor(private _GetMenuDataService: GetMenuDataService) {}
-  ngOnInit(): void {
-    this.Allimages = this._GetMenuDataService.AllImages;
+
+  ngAfterContentChecked(): void {
+    if (this._GetMenuDataService.AllImages) {
+      this.Allimages = this._GetMenuDataService.AllImages;
+    }
   }
 }

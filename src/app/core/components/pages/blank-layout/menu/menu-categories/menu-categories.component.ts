@@ -22,7 +22,16 @@ export class MenuCategoriesComponent {
   ) {}
   ngOnInit(): void {
     this.get_ActivatedRoute();
+  }
+
+  ngAfterContentChecked(): void {
     this.loadData();
+    this._GetMenuDataService.AllImages.Folder1.map((ele) => {
+      if (ele.Image_Name === this.ActivatedCategory) {
+        this.CurrentImage = ele.Image_Url;
+        console.log(this.CurrentImage);
+      }
+    });
   }
   get_ActivatedRoute(): void {
     this._ActivatedRoute.paramMap.subscribe({
