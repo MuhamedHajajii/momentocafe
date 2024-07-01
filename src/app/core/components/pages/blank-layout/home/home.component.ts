@@ -21,7 +21,6 @@ import { Allimages } from './../../../../interfaces/allimages';
 })
 export class HomeComponent {
   showOwle: boolean = true;
-  toggleLightBox: boolean = false;
   BannerImages!: Allimages;
   AdsVideo!: any;
   customOptions: OwlOptions = {
@@ -54,33 +53,11 @@ export class HomeComponent {
     this.showOwle = false;
   }
 
-  constructor(
-    @Inject(DOCUMENT) private document: Document,
-    private _GetMenuDataService: GetMenuDataService,
-    private ngZone: NgZone
-  ) {}
+  constructor(private _GetMenuDataService: GetMenuDataService) {}
 
   ngOnInit(): void {
     this._GetMenuDataService.GetData().subscribe();
     this._GetMenuDataService.GetImages().subscribe();
-
     this.BannerImages = this._GetMenuDataService.AllImages;
-    if (this.document.readyState !== 'loading') {
-      setTimeout(() => {
-        this.toggleLightBox = true;
-      }, 5000);
-    }
   }
-
-  /** ======================================== */
-  /** Light Box Handle */
-  /** ======================================== */
-  onToggleLightBox(): void {
-    this.toggleLightBox = !this.toggleLightBox;
-  }
-  stopProp(e: Event): void {
-    e.stopPropagation();
-  }
-  /** ======================================== */
-  /** ======================================== */
 }
