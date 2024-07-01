@@ -37,16 +37,20 @@ export class MenuCategoriesComponent {
   }
 
   loadDataImage(): void {
-    if (this._GetMenuDataService.AllImages) {
-      this._GetMenuDataService.AllImages.Folder1.map((ele) => {
-        if (ele.Image_Name === this.ActivatedCategory) {
-          this.CurrentImage = ele.Image_Url;
-        }
-      });
-    }
+    // if (this._GetMenuDataService.AllImages) {
+    //   this._GetMenuDataService.AllImages.Folder1.map((ele) => {
+    //     if (ele.Image_Name === this.ActivatedCategory) {
+    //       this.CurrentImage = ele.Image_Url;
+    //     }
+    //   });
+    // }
   }
 
   loadData(): void {
-    this.AllData = this._GetMenuDataService.AllData;
+    this._GetMenuDataService.AllData.subscribe({
+      next: (response) => {
+        this.AllData = response as Allmenudata[];
+      },
+    });
   }
 }

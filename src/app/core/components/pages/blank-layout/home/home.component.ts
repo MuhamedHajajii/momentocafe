@@ -58,6 +58,10 @@ export class HomeComponent {
   ngOnInit(): void {
     this._GetMenuDataService.GetData().subscribe();
     this._GetMenuDataService.GetImages().subscribe();
-    this.BannerImages = this._GetMenuDataService.AllImages;
+    this._GetMenuDataService.AllImages.subscribe({
+      next: (response) => {
+        this.BannerImages = response as Allimages;
+      },
+    });
   }
 }

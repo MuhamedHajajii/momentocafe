@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
-import { Observable, of, tap } from 'rxjs';
+import { BehaviorSubject, Observable, of, tap } from 'rxjs';
 import { Allimages } from '../interfaces/allimages';
 import { Allmenudata } from '../interfaces/allmenudata';
 import { isPlatformBrowser } from '@angular/common';
@@ -13,8 +13,11 @@ export class GetMenuDataService {
     private _HttpClient: HttpClient,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {}
-  AllData!: Allmenudata[];
-  AllImages!: Allimages;
+  AllData: BehaviorSubject<Allmenudata[] | null> = new BehaviorSubject<
+    Allmenudata[] | null
+  >(null);
+  AllImages: BehaviorSubject<Allimages | null> =
+    new BehaviorSubject<Allimages | null>(null);
 
   GetData(): Observable<Allmenudata[] | null> {
     if (isPlatformBrowser(this.platformId)) {
@@ -24,7 +27,7 @@ export class GetMenuDataService {
         )
         .pipe(
           tap((data) => {
-            this.AllData = data;
+            this.AllData.next(data);
             console.log(data);
           })
         );
@@ -41,7 +44,7 @@ export class GetMenuDataService {
         )
         .pipe(
           tap((data) => {
-            this.AllImages = data;
+            this.AllImages.next(data);
             console.log(data);
           })
         );

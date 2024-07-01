@@ -17,6 +17,10 @@ export class MenuComponent {
   ngOnInit(): void {
     this._GetMenuDataService.GetImages().subscribe();
     this._GetMenuDataService.GetData().subscribe();
-    this.Allimages = this._GetMenuDataService.AllImages;
+    this._GetMenuDataService.AllImages.subscribe({
+      next: (response) => {
+        this.Allimages = response as Allimages;
+      },
+    });
   }
 }
