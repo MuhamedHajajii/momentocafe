@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Allmenudata } from '../../../../../interfaces/allmenudata';
 import { CategoriesPipe } from '../../../../../pipes/categories.pipe';
 import { GetMenuDataService } from '../../../../../services/get-menu-data.service';
@@ -18,7 +18,8 @@ export class MenuCategoriesComponent {
   ActivatedCategory!: string;
   constructor(
     private _GetMenuDataService: GetMenuDataService,
-    private _ActivatedRoute: ActivatedRoute
+    private _ActivatedRoute: ActivatedRoute,
+    private _Router: Router
   ) {}
   ngOnInit(): void {
     this.get_ActivatedRoute();
@@ -29,6 +30,11 @@ export class MenuCategoriesComponent {
     this._ActivatedRoute.paramMap.subscribe({
       next: (response) => {
         this.ActivatedCategory = response.get('id') as string;
+        if (this.ActivatedCategory) {
+          // Navigate to your desired component with the parameter
+          this._Router.navigate([`/menu-categories`]);
+          console.log(this.ActivatedCategory);
+        }
         if (this._GetMenuDataService.AllImages) {
           this._GetMenuDataService.AllImages.Folder1.map((ele) => {
             if (ele.Image_Name === this.ActivatedCategory) {
