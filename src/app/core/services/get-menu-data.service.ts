@@ -27,16 +27,20 @@ export class GetMenuDataService {
 
   GetImages(): Observable<Allimages> {
     const headers = new HttpHeaders({
-      'Cache-Control': 'no-cache', // Adjust caching headers as per your needs
+      'Cache-Control': 'no-cache, no-store, must-revalidate',
+      Pragma: 'no-cache',
+      Expires: '0',
     });
     return this._HttpClient
       .get<Allimages>(
-        `https://script.google.com/macros/s/AKfycbxjSZdumyx5ohUa1ezT4eya7jZR56Fu3yYJ1V77qrbFOnlkCVagzeCPMJfUrUFi73tk/exec`
+        `https://script.google.com/macros/s/AKfycbxjSZdumyx5ohUa1ezT4eya7jZR56Fu3yYJ1V77qrbFOnlkCVagzeCPMJfUrUFi73tk/exec`,
+        { headers }
       )
       .pipe(
         tap((data) => {
           this.AllImages = data;
-          console.log(data);
+          console.log(data.Folder1);
+          console.log(data.Folder1[0]);
         })
       );
   }

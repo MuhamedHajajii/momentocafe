@@ -1,8 +1,8 @@
-import { Allimages } from './../../../../interfaces/allimages';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { GetMenuDataService } from '../../../../services/get-menu-data.service';
+import { Allimages } from './../../../../interfaces/allimages';
 
 @Component({
   selector: 'app-menu',
