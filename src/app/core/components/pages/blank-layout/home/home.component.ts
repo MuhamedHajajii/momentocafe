@@ -62,8 +62,8 @@ export class HomeComponent {
 
   ngOnInit(): void {
     this._GetMenuDataService.GetData().subscribe();
-
     this._GetMenuDataService.GetImages().subscribe();
+
     this.BannerImages = this._GetMenuDataService.AllImages;
     if (this.document.readyState !== 'loading') {
       setTimeout(() => {

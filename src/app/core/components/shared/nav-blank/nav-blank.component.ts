@@ -14,7 +14,6 @@ import { DOCUMENT } from '@angular/common';
 })
 export class NavBlankComponent {
   constructor(
-    @Inject(DOCUMENT) private document: Document,
     private _EventsService: EventsService,
     private _GetMenuDataService: GetMenuDataService
   ) {}

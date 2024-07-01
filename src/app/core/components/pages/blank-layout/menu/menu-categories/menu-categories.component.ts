@@ -22,22 +22,26 @@ export class MenuCategoriesComponent {
   ) {}
   ngOnInit(): void {
     this.get_ActivatedRoute();
-    this.loadData();
   }
 
   get_ActivatedRoute(): void {
     this._ActivatedRoute.paramMap.subscribe({
       next: (response) => {
         this.ActivatedCategory = response.get('id') as string;
-        if (this._GetMenuDataService.AllImages) {
-          this._GetMenuDataService.AllImages.Folder1.map((ele) => {
-            if (ele.Image_Name === this.ActivatedCategory) {
-              this.CurrentImage = ele.Image_Url;
-            }
-          });
-        }
+        this.loadData();
+        this.loadDataImage();
       },
     });
+  }
+
+  loadDataImage(): void {
+    if (this._GetMenuDataService.AllImages) {
+      this._GetMenuDataService.AllImages.Folder1.map((ele) => {
+        if (ele.Image_Name === this.ActivatedCategory) {
+          this.CurrentImage = ele.Image_Url;
+        }
+      });
+    }
   }
 
   loadData(): void {

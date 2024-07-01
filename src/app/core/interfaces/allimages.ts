@@ -5,5 +5,7 @@ export interface Allimages {
 interface Folder1 {
   Image_Name: string;
   Image_Url: string;
+  Number: number;
   Folder: string;
+  Last_Modified: string;
 }
