@@ -1,8 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, from, tap } from 'rxjs';
-import { Allmenudata } from '../interfaces/allmenudata';
+import { Observable, tap } from 'rxjs';
 import { Allimages } from '../interfaces/allimages';
+import { Allmenudata } from '../interfaces/allmenudata';
 
 @Injectable({
   providedIn: 'root',
@@ -20,11 +20,15 @@ export class GetMenuDataService {
       .pipe(
         tap((data) => {
           this.AllData = data;
+          console.log(data);
         })
       );
   }
 
   GetImages(): Observable<Allimages> {
+    const headers = new HttpHeaders({
+      'Cache-Control': 'no-cache', // Adjust caching headers as per your needs
+    });
     return this._HttpClient
       .get<Allimages>(
         `https://script.google.com/macros/s/AKfycbxjSZdumyx5ohUa1ezT4eya7jZR56Fu3yYJ1V77qrbFOnlkCVagzeCPMJfUrUFi73tk/exec`
@@ -32,6 +36,7 @@ export class GetMenuDataService {
       .pipe(
         tap((data) => {
           this.AllImages = data;
+          console.log(data);
         })
       );
   }
