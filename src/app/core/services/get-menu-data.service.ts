@@ -17,29 +17,34 @@ export class GetMenuDataService {
   AllImages!: Allimages;
 
   GetData(): Observable<Allmenudata[] | null> {
-    return this._HttpClient
-      .get<Allmenudata[]>(
-        `https://script.google.com/macros/s/AKfycbwoq3YmKn47pBKhUtqPfVSHu3Ub0Fcjirsi14PUP_zDwUM26mX3PF7HpFP5HDVPoj-M/exec`
-      )
-      .pipe(
-        tap((data) => {
-          this.AllData = data;
-          console.log(data);
-        })
-      );
+    if (isPlatformBrowser(this.platformId)) {
+      return this._HttpClient
+        .get<Allmenudata[]>(
+          `https://script.google.com/macros/s/AKfycbwoq3YmKn47pBKhUtqPfVSHu3Ub0Fcjirsi14PUP_zDwUM26mX3PF7HpFP5HDVPoj-M/exec`
+        )
+        .pipe(
+          tap((data) => {
+            this.AllData = data;
+          })
+        );
+    } else {
+      return of(null);
+    }
   }
 
   GetImages(): Observable<Allimages | null> {
-    return this._HttpClient
-      .get<Allimages>(
-        `https://script.google.com/macros/s/AKfycbxjSZdumyx5ohUa1ezT4eya7jZR56Fu3yYJ1V77qrbFOnlkCVagzeCPMJfUrUFi73tk/exec`
-      )
-      .pipe(
-        tap((data) => {
-          this.AllImages = data;
-          console.log(data.Folder1);
-          console.log(data.Folder1[0]);
-        })
-      );
+    if (isPlatformBrowser(this.platformId)) {
+      return this._HttpClient
+        .get<Allimages>(
+          `https://script.google.com/macros/s/AKfycbxjSZdumyx5ohUa1ezT4eya7jZR56Fu3yYJ1V77qrbFOnlkCVagzeCPMJfUrUFi73tk/exec`
+        )
+        .pipe(
+          tap((data) => {
+            this.AllImages = data;
+          })
+        );
+    } else {
+      return of(null);
+    }
   }
 }

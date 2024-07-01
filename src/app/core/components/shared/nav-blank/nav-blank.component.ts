@@ -1,9 +1,9 @@
-import { Component, Inject, NgZone } from '@angular/core';
+import { Component, Inject, NgZone, PLATFORM_ID } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { BadgeModule } from 'primeng/badge';
 import { EventsService } from '../../../services/events.service';
 import { GetMenuDataService } from '../../../services/get-menu-data.service';
-import { DOCUMENT } from '@angular/common';
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { take, timer } from 'rxjs';
 @Component({
   selector: 'app-nav-blank',
@@ -14,6 +14,7 @@ import { take, timer } from 'rxjs';
 })
 export class NavBlankComponent {
   constructor(
+    @Inject(PLATFORM_ID) private platformId: Object,
     @Inject(DOCUMENT) private document: Document,
     private zone: NgZone,
     private _GetMenuDataService: GetMenuDataService
