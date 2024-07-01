@@ -1,9 +1,10 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, NgZone } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { BadgeModule } from 'primeng/badge';
 import { EventsService } from '../../../services/events.service';
 import { GetMenuDataService } from '../../../services/get-menu-data.service';
 import { DOCUMENT } from '@angular/common';
+import { take, timer } from 'rxjs';
 @Component({
   selector: 'app-nav-blank',
   standalone: true,
@@ -14,8 +15,7 @@ import { DOCUMENT } from '@angular/common';
 export class NavBlankComponent {
   constructor(
     @Inject(DOCUMENT) private document: Document,
-
-    private _EventsService: EventsService,
+    private zone: NgZone,
     private _GetMenuDataService: GetMenuDataService
   ) {}
   // toggleLightBox(): void {
@@ -24,15 +24,20 @@ export class NavBlankComponent {
   ngOnInit(): void {
     this._GetMenuDataService.GetData().subscribe();
     this._GetMenuDataService.GetImages().subscribe();
-    this.delayDisplayVideo;
+    this.delayDisplayVideo();
   }
 
   toggleLightBox: boolean = false;
   delayDisplayVideo(): void {
+    console.log(this.document.readyState);
     if (this.document.readyState !== 'loading') {
-      setTimeout(() => {
-        this.toggleLightBox = true;
-      }, 5000);
+      this.zone.runOutsideAngular(() => {
+        timer(5000)
+          .pipe(take(1))
+          .subscribe(() => {
+            this.toggleLightBox = true;
+          });
+      });
     }
   }
   /** ======================================== */
