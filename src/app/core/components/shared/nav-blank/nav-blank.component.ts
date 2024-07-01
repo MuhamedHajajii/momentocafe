@@ -18,9 +18,6 @@ export class NavBlankComponent {
     private zone: NgZone,
     private _GetMenuDataService: GetMenuDataService
   ) {}
-  // toggleLightBox(): void {
-  //   this._EventsService.toggleLightBox.next(true);
-  // }
   ngOnInit(): void {
     this._GetMenuDataService.GetData().subscribe();
     this._GetMenuDataService.GetImages().subscribe();

@@ -1,41 +1,53 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable, tap } from 'rxjs';
+import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
+import { Observable, of, tap } from 'rxjs';
 import { Allimages } from '../interfaces/allimages';
 import { Allmenudata } from '../interfaces/allmenudata';
+import { isPlatformBrowser } from '@angular/common';
 
 @Injectable({
   providedIn: 'root',
 })
 export class GetMenuDataService {
-  constructor(private _HttpClient: HttpClient) {}
+  constructor(
+    private _HttpClient: HttpClient,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {}
   AllData!: Allmenudata[];
   AllImages!: Allimages;
 
-  GetData(): Observable<Allmenudata[]> {
-    return this._HttpClient
-      .get<Allmenudata[]>(
-        `https://script.google.com/macros/s/AKfycbwoq3YmKn47pBKhUtqPfVSHu3Ub0Fcjirsi14PUP_zDwUM26mX3PF7HpFP5HDVPoj-M/exec`
-      )
-      .pipe(
-        tap((data) => {
-          this.AllData = data;
-          console.log(data);
-        })
-      );
+  GetData(): Observable<Allmenudata[] | null> {
+    if (isPlatformBrowser(this.platformId)) {
+      return this._HttpClient
+        .get<Allmenudata[]>(
+          `https://script.google.com/macros/s/AKfycbwoq3YmKn47pBKhUtqPfVSHu3Ub0Fcjirsi14PUP_zDwUM26mX3PF7HpFP5HDVPoj-M/exec`
+        )
+        .pipe(
+          tap((data) => {
+            this.AllData = data;
+            console.log(data);
+          })
+        );
+    } else {
+      return of(null);
+    }
   }
 
-  GetImages(): Observable<Allimages> {
-    return this._HttpClient
-      .get<Allimages>(
-        `https://script.google.com/macros/s/AKfycbxjSZdumyx5ohUa1ezT4eya7jZR56Fu3yYJ1V77qrbFOnlkCVagzeCPMJfUrUFi73tk/exec`
-      )
-      .pipe(
-        tap((data) => {
-          this.AllImages = data;
-          console.log(data.Folder1);
-          console.log(data.Folder1[0]);
-        })
-      );
+  GetImages(): Observable<Allimages | null> {
+    if (isPlatformBrowser(this.platformId)) {
+      return this._HttpClient
+        .get<Allimages>(
+          `https://script.google.com/macros/s/AKfycbxjSZdumyx5ohUa1ezT4eya7jZR56Fu3yYJ1V77qrbFOnlkCVagzeCPMJfUrUFi73tk/exec`
+        )
+        .pipe(
+          tap((data) => {
+            this.AllImages = data;
+            console.log(data.Folder1);
+            console.log(data.Folder1[0]);
+          })
+        );
+    } else {
+      return of(null);
+    }
   }
 }
