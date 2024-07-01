@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, Inject, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { EventsService } from '../../../services/events.service';
 import { BadgeModule } from 'primeng/badge';
 import { GetMenuDataService } from '../../../services/get-menu-data.service';
 import { Allmenudata } from '../../../interfaces/allmenudata';
+import { DOCUMENT } from '@angular/common';
 @Component({
   selector: 'app-nav-blank',
   standalone: true,
@@ -13,6 +14,7 @@ import { Allmenudata } from '../../../interfaces/allmenudata';
 })
 export class NavBlankComponent {
   constructor(
+    @Inject(DOCUMENT) private document: Document,
     private _EventsService: EventsService,
     private _GetMenuDataService: GetMenuDataService
   ) {}
