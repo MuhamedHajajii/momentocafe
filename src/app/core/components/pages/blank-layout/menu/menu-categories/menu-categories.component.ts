@@ -32,7 +32,7 @@ export class MenuCategoriesComponent {
         this.ActivatedCategory = response.get('id') as string;
         if (this.ActivatedCategory) {
           // Navigate to your desired component with the parameter
-          this._Router.navigate([`/menu-categories`]);
+          this._Router.navigate([`/menu-categories`, this.ActivatedCategory]);
           console.log(this.ActivatedCategory);
         }
         if (this._GetMenuDataService.AllImages) {
