@@ -15,8 +15,6 @@ export class MenuComponent {
   Allimages!: Allimages;
   constructor(private _GetMenuDataService: GetMenuDataService) {}
   ngOnInit(): void {
-    this._GetMenuDataService.GetImages().subscribe();
-    this._GetMenuDataService.GetData().subscribe();
     this._GetMenuDataService.AllImages.subscribe({
       next: (response) => {
         this.Allimages = response as Allimages;

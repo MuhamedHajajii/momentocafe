@@ -6,7 +6,7 @@
         <img
           width="75"
           height="75"
-          [src]="CurrentImage"
+          [src]="CurrentImage ? CurrentImage : 'assets/Logo/logo.png'"
           role="presentation"
           class="rounded-circle position-relative z-2"
           referrerpolicy="no-referrer"

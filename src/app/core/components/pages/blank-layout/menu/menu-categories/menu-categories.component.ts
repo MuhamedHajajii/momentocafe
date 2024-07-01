@@ -4,7 +4,6 @@ import { Allmenudata } from '../../../../../interfaces/allmenudata';
 import { CategoriesPipe } from '../../../../../pipes/categories.pipe';
 import { GetMenuDataService } from '../../../../../services/get-menu-data.service';
 import { MenuComponent } from '../menu.component';
-import { Allimages } from '../../../../../interfaces/allimages';
 
 @Component({
   selector: 'app-menu-categories',
@@ -22,8 +21,6 @@ export class MenuCategoriesComponent {
     private _ActivatedRoute: ActivatedRoute
   ) {}
   ngOnInit(): void {
-    this._GetMenuDataService.GetData().subscribe();
-    this._GetMenuDataService.GetImages().subscribe();
     this.get_ActivatedRoute();
   }
 
@@ -41,6 +38,7 @@ export class MenuCategoriesComponent {
     this._GetMenuDataService.AllImages.subscribe({
       next: (response) => {
         response?.Folder1.map((ele) => {
+          console.log(response);
           if (ele.Image_Name === this.ActivatedCategory) {
             this.CurrentImage = ele.Image_Url;
           }
