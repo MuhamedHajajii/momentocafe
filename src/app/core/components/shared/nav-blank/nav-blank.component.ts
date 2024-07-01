@@ -22,8 +22,8 @@ export class NavBlankComponent {
   //   this._EventsService.toggleLightBox.next(true);
   // }
   ngOnInit(): void {
-    // this._GetMenuDataService.GetData().subscribe();
-    // this._GetMenuDataService.GetImages().subscribe();
+    this._GetMenuDataService.GetData().subscribe();
+    this._GetMenuDataService.GetImages().subscribe();
     this.delayDisplayVideo();
   }
 

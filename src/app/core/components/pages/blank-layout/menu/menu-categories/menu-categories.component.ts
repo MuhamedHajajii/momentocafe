@@ -21,6 +21,8 @@ export class MenuCategoriesComponent {
     private _ActivatedRoute: ActivatedRoute
   ) {}
   ngOnInit(): void {
+    this._GetMenuDataService.GetData().subscribe();
+    this._GetMenuDataService.GetImages().subscribe();
     this.get_ActivatedRoute();
   }
 
