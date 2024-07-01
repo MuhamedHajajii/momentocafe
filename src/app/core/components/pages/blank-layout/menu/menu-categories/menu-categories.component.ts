@@ -4,6 +4,7 @@ import { Allmenudata } from '../../../../../interfaces/allmenudata';
 import { CategoriesPipe } from '../../../../../pipes/categories.pipe';
 import { GetMenuDataService } from '../../../../../services/get-menu-data.service';
 import { MenuComponent } from '../menu.component';
+import { Allimages } from '../../../../../interfaces/allimages';
 
 @Component({
   selector: 'app-menu-categories',
@@ -37,13 +38,15 @@ export class MenuCategoriesComponent {
   }
 
   loadDataImage(): void {
-    // if (this._GetMenuDataService.AllImages) {
-    //   this._GetMenuDataService.AllImages.Folder1.map((ele) => {
-    //     if (ele.Image_Name === this.ActivatedCategory) {
-    //       this.CurrentImage = ele.Image_Url;
-    //     }
-    //   });
-    // }
+    this._GetMenuDataService.AllImages.subscribe({
+      next: (response) => {
+        response?.Folder1.map((ele) => {
+          if (ele.Image_Name === this.ActivatedCategory) {
+            this.CurrentImage = ele.Image_Url;
+          }
+        });
+      },
+    });
   }
 
   loadData(): void {
