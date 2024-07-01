@@ -1,2 +1,0 @@
-import './polyfills.server.mjs';
-import{$ as i,Ib as r,Pb as s,sb as o,tb as a}from"./chunk-6RWWYFI2.mjs";import"./chunk-FME56UVT.mjs";var l=(()=>{let e=class e{};e.\u0275fac=function(n){return new(n||e)},e.\u0275cmp=i({type:e,selectors:[["app-delivery-adminstration"]],standalone:!0,features:[s],decls:2,vars:0,template:function(n,m){n&1&&(o(0,"p"),r(1,"delivery-adminstration works!"),a())}});let t=e;return t})();export{l as DeliveryAdminstrationComponent};

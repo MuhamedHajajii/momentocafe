@@ -1,0 +1,9 @@
+{
+  "routes": [
+    "/",
+    "/delivery",
+    "/deliveryAdmin",
+    "/feedback",
+    "/menu"
+  ]
+}
