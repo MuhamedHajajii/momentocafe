@@ -27,3 +27,19 @@
 .lightBoxContent {
   max-width: 650px;
 }
+
+.SecitonLoad {
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: SecitonLoad forwards 0.3s;
+}
+@keyframes SecitonLoad {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -42,7 +42,7 @@
     <ul
       class="list-unstyled p-0 m-0 d-flex align-items-center justify-content-center px-2 pt-3"
     >
-      <li>
+      <li class="SecitonLoad">
         <a class="nav-link logocontainer mx-auto" routerLink="/">
           <img class="w-100" src="assets/Logo/logo.png" alt="momento logo" />
         </a>
@@ -74,11 +74,13 @@
 @if (toggleLightBox) {
 <div
   (click)="onToggleLightBox()"
-  class="lightBoxContainer position-fixed top-0 start-0 end-0 bottom-0 d-flex justify-content-center align-items-center Bg-RGBA z-3"
+  class="lightBoxContainer position-fixed top-0 start-0 end-0 bottom-0 d-flex justify-content-center align-items-center Bg-RGBA z-3 SecitonLoad"
 >
   <div
     class="lightBoxContent d-flex justify-content-center align-items-center position-relative"
     (click)="stopProp($event)"
+    data-aos="fade-up"
+    data-aos-duration="1000"
   >
     <button
       class="btn-close px-4 position-absolute Bg-Main end-0 m-3 bottom-100"

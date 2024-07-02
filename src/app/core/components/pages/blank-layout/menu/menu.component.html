@@ -1,11 +1,13 @@
 @if (Allimages) {
-<section class="bg-light">
+<section class="bg-light SecitonLoad">
   <div class="container-fluid py-4 mt-3">
     <h3 class="text-center Text-Main my-3">Menu</h3>
     <div class="row">
       @for (item of Allimages.Folder1 ; track $index) {
       <div class="col-4 col-md-4 col-lg-3 p-2 p-lg-4">
         <div
+          data-aos="fade-up"
+          data-aos-duration="1000"
           class="Categorie__Container rounded-3 h-100 shadow-sm"
           role="button"
           tabindex="0"
@@ -21,6 +23,8 @@
             />
           </div>
           <p
+            data-aos="flip-up"
+            data-aos-duration="1000"
             class="text-center text-uppercase rounded-pill Bg-Secondary w-75 mx-auto text-white py-3 px-3 fw-bold h4 mt-3 main_Text"
           >
             {{ item.Image_Name }}

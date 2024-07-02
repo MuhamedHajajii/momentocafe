@@ -1,10 +1,10 @@
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { Component, Inject, NgZone, PLATFORM_ID } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { BadgeModule } from 'primeng/badge';
-import { EventsService } from '../../../services/events.service';
-import { GetMenuDataService } from '../../../services/get-menu-data.service';
-import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { take, timer } from 'rxjs';
+import { GetMenuDataService } from '../../../services/get-menu-data.service';
+
 @Component({
   selector: 'app-nav-blank',
   standalone: true,
@@ -22,7 +22,32 @@ export class NavBlankComponent {
   ngOnInit(): void {
     this._GetMenuDataService.GetData().subscribe();
     this._GetMenuDataService.GetImages().subscribe();
+    this.StartAnimation();
     this.delayDisplayVideo();
+  }
+  /** Start animation */
+  StartAnimation(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      if (this.document.readyState !== 'loading') {
+        this.loadAOS();
+      } else {
+        this.document.addEventListener('DOMContentLoaded', () =>
+          this.loadAOS()
+        );
+      }
+    }
+  }
+
+  private async loadAOS() {
+    try {
+      const { default: AOS } = await import('aos');
+      AOS.init();
+
+      // Refresh AOS to account for dynamically added elements
+      AOS.refresh();
+    } catch (error) {
+      console.error('Error loading AOS:', error);
+    }
   }
 
   toggleLightBox: boolean = false;

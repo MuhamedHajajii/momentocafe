@@ -1,14 +1,8 @@
 <section class="my-3">
   <div class="container">
     <div>
-      <h2
-        class="text-capitalize text-center Bg-Secondary rounded-3 text-white py-1"
-      >
-        we are pleased to serve you ...
-        <i class="fa-solid fa-heart text-danger"></i>
-      </h2>
       <form [formGroup]="rateForm" (ngSubmit)="onSubmitRateForm()">
-        <div class="mb-3">
+        <div class="mb-3" data-aos="fade-right" data-aos-duration="1000">
           <label class="form-label" for="name">Your Name</label>
           <input
             class="form-control"
@@ -18,7 +12,12 @@
             formControlName="name"
           />
         </div>
-        <div class="mb-3">
+        <div
+          class="mb-3"
+          data-aos="fade-right"
+          data-aos-duration="1000"
+          data-aos-delay="500"
+        >
           <label class="form-label" for="name">Mobile Number</label>
           <input
             class="form-control"
@@ -28,12 +27,22 @@
             formControlName="mobile"
           />
         </div>
-        <div class="row">
+        <div
+          class="row"
+          data-aos="fade-right"
+          data-aos-duration="1000"
+          data-aos-delay="1000"
+        >
           <div
             class="mb-3 col-12 row d-flex justify-content-start align-items-center"
           >
             <label class="form-label col-2" for="Taste">Taste:</label>
-            <div class="col-10">
+            <div
+              class="col-10"
+              data-aos="fade-right"
+              data-aos-duration="1000"
+              data-aos-delay="1200"
+            >
               <p-rating
                 id="Taste"
                 name="Taste"
@@ -47,7 +56,12 @@
             class="mb-3 col-12 row d-flex justify-content-start align-items-center"
           >
             <label class="form-label col-2" for="Quality">Quality:</label>
-            <div class="col-10">
+            <div
+              class="col-10"
+              data-aos="fade-right"
+              data-aos-duration="1000"
+              data-aos-delay="1400"
+            >
               <p-rating
                 id="Quality"
                 name="Quality"
@@ -61,7 +75,12 @@
             class="mb-3 col-12 row d-flex justify-content-start align-items-center"
           >
             <label class="form-label col-2" for="Place">Place:</label>
-            <div class="col-10">
+            <div
+              class="col-10"
+              data-aos="fade-right"
+              data-aos-duration="1000"
+              data-aos-delay="1600"
+            >
               <p-rating
                 id="Place"
                 name="Place"
@@ -75,7 +94,12 @@
             class="mb-3 col-12 row d-flex justify-content-start align-items-center"
           >
             <label class="form-label col-2" for="Service">Service:</label>
-            <div class="col-10">
+            <div
+              class="col-10"
+              data-aos="fade-right"
+              data-aos-duration="1000"
+              data-aos-delay="1800"
+            >
               <p-rating
                 id="Service"
                 name="Service"
@@ -103,6 +127,12 @@
           </button>
         </div>
       </form>
+      <h2
+        class="text-capitalize text-center Bg-Secondary rounded-3 text-white py-1"
+      >
+        we are pleased to serve you ...
+        <i class="fa-solid fa-heart text-danger"></i>
+      </h2>
     </div>
   </div>
 </section>

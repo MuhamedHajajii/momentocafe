@@ -1,7 +1,11 @@
 @if (AllData) {
 <section class="Bg-Secondary py-5 mt-3">
   <div class="container text-uppercase">
-    <div class="mb-3 d-flex justify-content-center align-items-center">
+    <div
+      class="mb-3 d-flex justify-content-center align-items-center"
+      data-aos="fade-down"
+      data-aos-duration="1000"
+    >
       <div class="bg-white rounded-circle">
         <img
           width="75"
@@ -18,7 +22,11 @@
     </div>
     @for (item of AllData | categories:ActivatedCategory; track $index) { @for
     (item of item.Items; track $index) {
-    <div class="row text-center border-bottom animateOnLog">
+    <div
+      class="row text-center border-bottom"
+      data-aos="fade-right"
+      data-aos-duration="1000"
+    >
       <p class="bg-white col-8 fs-6 mb-0">
         {{ item.Name }}
         <span class="d-block fs-6 Text-Secondary">{{ item.Description }}</span>
