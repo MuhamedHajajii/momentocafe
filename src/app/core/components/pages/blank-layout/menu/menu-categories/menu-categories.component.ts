@@ -38,7 +38,6 @@ export class MenuCategoriesComponent {
     this._GetMenuDataService.AllImages.subscribe({
       next: (response) => {
         response?.Folder1.map((ele) => {
-          console.log(response);
           if (ele.Image_Name === this.ActivatedCategory) {
             this.CurrentImage = ele.Image_Url;
           }

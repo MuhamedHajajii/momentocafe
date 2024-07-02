@@ -52,7 +52,6 @@ export class NavBlankComponent {
 
   toggleLightBox: boolean = false;
   delayDisplayVideo(): void {
-    console.log(this.document.readyState);
     if (this.document.readyState !== 'loading') {
       this.zone.runOutsideAngular(() => {
         timer(5000)

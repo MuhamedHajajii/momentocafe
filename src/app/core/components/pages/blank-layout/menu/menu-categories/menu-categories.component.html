@@ -20,8 +20,8 @@
         {{ ActivatedCategory }}
       </p>
     </div>
-    @for (item of AllData | categories:ActivatedCategory; track $index) { @for
-    (item of item.Items; track $index) {
+    @for (item of AllData | categories:ActivatedCategory; track item ; let i =
+    $index) { @for (item of item.Items; track $index) {
     <div
       class="row text-center border-bottom"
       data-aos="fade-right"
