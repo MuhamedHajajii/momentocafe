@@ -8,3 +8,8 @@ body,
 html {
   overflow-x: hidden;
 }
+body::selection,
+html::selection,
+*::selection {
+  background-color: transparent !important;
+}
