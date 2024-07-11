@@ -1,0 +1,238 @@
+<section>
+  <div class="container my-4">
+    <form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
+      <!-- Clint_Name -->
+      <div class="my-2">
+        <div class="d-flex justify-content-between align-items-center">
+          <label class="form-label mb-1" for="Clint_Name">Name:</label>
+          @if (orderForm.get('Clint_Name')?.getError('required')&&
+          startValidation) {
+          <p class="mb-0 text-danger fw-bold">required*</p>
+          }
+        </div>
+        <input
+          [ngClass]="{
+            'is-invalid':
+              orderForm.get('Clint_Name')?.getError('required') &&
+              startValidation
+          }"
+          formControlName="Clint_Name"
+          class="form-control"
+          type="text"
+          name="Clint_Name"
+          id="Clint_Name"
+          autocomplete="name"
+          placeholder="Enter Your Name"
+          aria-required="true"
+          aria-label="Full Name"
+          aria-describedby="Your Full Name"
+        />
+
+        <small id="clientNameHelp" class="form-text text-muted"
+          >Please enter the full name.</small
+        >
+      </div>
+      <!-- Clint_Email -->
+      <div class="my-2">
+        <div class="d-flex justify-content-between align-items-center">
+          <label class="form-label mb-1" for="Clint_Email">Email:</label>
+          <!-- required -->
+          @if (orderForm.get('Clint_Email')?.getError('required')&&
+          startValidation) {
+          <p class="mb-0 text-danger fw-bold">required*</p>
+          }
+          <!-- email -->
+          @if (orderForm.get('Clint_Email')?.getError('email')&&
+          startValidation) {
+          <p class="mb-0 text-danger fw-bold">Please Enter A Valid Email*</p>
+          }
+        </div>
+        <input
+          [ngClass]="{
+            'is-invalid':
+              (orderForm.get('Clint_Email')?.getError('required') &&
+                startValidation) ||
+              (orderForm.get('Clint_Email')?.getError('email') &&
+                startValidation)
+          }"
+          formControlName="Clint_Email"
+          class="form-control"
+          type="email"
+          name="Clint_Email"
+          id="Clint_Email"
+          autocomplete="email"
+          placeholder="ex. momento@gmail.com"
+          aria-required="true"
+          aria-label="Email"
+          aria-describedby="Your Email"
+        />
+
+        <small id="clientNameHelp" class="form-text text-muted"
+          >Please enter Your Email.</small
+        >
+      </div>
+      <!-- Clint_Phone -->
+      <div class="my-2">
+        <div class="d-flex justify-content-between align-items-center">
+          <label class="form-label mb-1" for="Clint_Phone">Phone:</label>
+          <!-- required -->
+          @if (orderForm.get('Clint_Phone')?.getError('required')&&
+          startValidation) {
+          <p class="mb-0 text-danger fw-bold">required*</p>
+          }
+          <!-- pattern -->
+          @if (orderForm.get('Clint_Phone')?.getError('pattern')&&
+          startValidation) {
+          <p class="mb-0 text-danger fw-bold">
+            Please Enter A Valid Phone Number*
+          </p>
+          }
+        </div>
+        <input
+          [ngClass]="{
+            'is-invalid':
+              (orderForm.get('Clint_Phone')?.getError('required') &&
+                startValidation) ||
+              (orderForm.get('Clint_Phone')?.getError('pattern') &&
+                startValidation)
+          }"
+          formControlName="Clint_Phone"
+          class="form-control"
+          type="tel"
+          name="Clint_Phone"
+          id="Clint_Phone"
+          autocomplete="tel"
+          placeholder="ex. 010012345678"
+          aria-required="true"
+          aria-label="Phone Number"
+          aria-describedby="Your Phone Number"
+        />
+
+        <small id="clientNameHelp" class="form-text text-muted"
+          >Please enter Your Phone Number.</small
+        >
+      </div>
+      <!-- Clint_Address -->
+      <div class="my-2">
+        <div class="d-flex justify-content-between align-items-center">
+          <label class="form-label mb-1" for="Clint_Address">Address:</label>
+          @if (orderForm.get('Clint_Address')?.getError('required')&&
+          startValidation) {
+          <p class="mb-0 text-danger fw-bold">required*</p>
+          }
+        </div>
+        <input
+          [ngClass]="{
+            'is-invalid':
+              orderForm.get('Clint_Address')?.getError('required') &&
+              startValidation
+          }"
+          formControlName="Clint_Address"
+          class="form-control"
+          type="text"
+          name="Clint_Address"
+          id="Clint_Address"
+          autocomplete="address-level1"
+          placeholder="ex. burj el arab - el saeedi - behind moataz pharmacy"
+          aria-required="true"
+          aria-label="Address"
+          aria-describedby="Your Address"
+        />
+
+        <small id="clientNameHelp" class="form-text text-muted"
+          >please enter your address and describe the directions.</small
+        >
+      </div>
+      <!-- Clint_Remarks -->
+      <div class="my-2">
+        <div class="d-flex justify-content-between align-items-center">
+          <label class="form-label mb-1" for="Clint_Remarks">Remarks:</label>
+        </div>
+        <textarea
+          [ngClass]="{
+            'is-invalid':
+              orderForm.get('Clint_Remarks')?.getError('required') &&
+              startValidation
+          }"
+          formControlName="Clint_Remarks"
+          class="form-control"
+          type="text"
+          name="Clint_Remarks"
+          id="Clint_Remarks"
+          autocomplete="off"
+          placeholder="any remarks if there"
+          aria-required="true"
+          aria-label="Remarks"
+          aria-describedby="Your Remarks"
+        ></textarea>
+      </div>
+      <div class="my-2">
+        <button class="btn-main">Confirm Order</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+@if (lightBoxFlag) {
+<div class="LightBoxContainer" (click)="toggleLightBox()">
+  <div class="lightBoxContent overflow-y-scroll" (click)="stopProp($event)">
+    <div class="card p-3 w-100">
+      <h2 class="text-center">
+        <span class="border-bottom border-3 mb-2">Check Order Details</span>
+      </h2>
+      <p class="row flex-nowrap">
+        <span class="col-5">Name</span>
+        <span class="col-1">:</span>
+        <span class="col-6">{{ finalOrder.details.Clint_Name }}</span>
+      </p>
+      <p class="row flex-nowrap">
+        <span class="col-5">Email</span>
+        <span class="col-1">:</span>
+        <span class="col-6">{{ finalOrder.details.Clint_Email }}</span>
+      </p>
+      <p class="row flex-nowrap">
+        <span class="col-5">Phone</span>
+        <span class="col-1">:</span>
+        <span class="col-6">{{ finalOrder.details.Clint_Phone }}</span>
+      </p>
+      <p class="row flex-nowrap">
+        <span class="col-5">Address</span>
+        <span class="col-1">:</span>
+        <span class="col-6">{{ finalOrder.details.Clint_Address }}</span>
+      </p>
+      <p class="row flex-nowrap">
+        <span class="col-5">Remarks</span>
+        <span class="col-1">:</span>
+        <span class="col-6">{{ finalOrder.details.Clint_Remarks }}</span>
+      </p>
+      <table class="table text-center">
+        <thead>
+          <tr>
+            <th>item:</th>
+            <th>count:</th>
+            <th>price:</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (item of finalOrder.order.order_Details; track $index) {
+          <tr>
+            <td>{{ item.name }}</td>
+            <td>{{ item.count }}</td>
+            <td>{{ item.Price }} .LE</td>
+          </tr>
+          }
+        </tbody>
+        <tfoot>
+          <tr>
+            <td>Total:</td>
+            <td colspan="2">{{ finalOrder.order.Total }} .LE</td>
+          </tr>
+        </tfoot>
+      </table>
+      <div class="my-2 text-center">
+        <button (click)="sendOrder()" class="btn-main px-4">Order Now</button>
+      </div>
+    </div>
+  </div>
+</div>
+}

@@ -1,0 +1,27 @@
+@import "variables";
+:host ::ng-deep {
+  form * {
+    ::selection {
+      background-color: $secondary-color !important;
+      color: white !important;
+    }
+    ::placeholder {
+      opacity: 0.25;
+    }
+  }
+  /* Target the scrollbar track */
+  ::-webkit-scrollbar-track {
+    background-color: $secondary-color; /* Color of the track */
+  }
+
+  /* Target the scrollbar thumb */
+  ::-webkit-scrollbar-thumb {
+    background-color: $main-color; /* Color of the thumb */
+    border-radius: 5px; /* Rounded corners */
+  }
+
+  /* Optionally, style the scrollbar itself */
+  ::-webkit-scrollbar {
+    width: 10px; /* Width of the scrollbar */
+  }
+}

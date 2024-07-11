@@ -51,6 +51,13 @@ export const routes: Routes = [
           ).then((e) => e.MenuCategoriesComponent),
       },
       {
+        path: 'cart',
+        loadComponent: () =>
+          import(
+            './core/components/pages/blank-layout/delivery/cart/cart.component'
+          ).then((e) => e.CartComponent),
+      },
+      {
         path: '**',
         redirectTo: '',
         pathMatch: 'full',

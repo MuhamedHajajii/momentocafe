@@ -1,8 +1,8 @@
 export interface Allmenudata {
   Category_Name: string;
-  Items: MenuItem[];
+  Items: menuItem[];
 }
-export interface MenuItem {
+export interface menuItem {
   Name: string;
   Small_Price: number | string | string;
   Description: string;

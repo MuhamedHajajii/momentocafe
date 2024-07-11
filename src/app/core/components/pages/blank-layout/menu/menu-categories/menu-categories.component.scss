@@ -18,3 +18,12 @@ p.rounded-end-pill {
     transform: translateY(0);
   }
 }
+
+:host ::ng-deep {
+  @media screen and (max-width: 567px) {
+    .p-toast {
+      max-width: 300px;
+      font-family: inherit;
+    }
+  }
+}

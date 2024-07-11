@@ -1,14 +1,15 @@
-import { DOCUMENT, isPlatformBrowser } from '@angular/common';
+import { CommonModule, DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { Component, Inject, NgZone, PLATFORM_ID } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { BadgeModule } from 'primeng/badge';
 import { take, timer } from 'rxjs';
 import { GetMenuDataService } from '../../../services/get-menu-data.service';
+import { CartIconComponent } from '../../pages/blank-layout/delivery/cart-icon/cart-icon.component';
 
 @Component({
   selector: 'app-nav-blank',
   standalone: true,
-  imports: [RouterLink, BadgeModule],
+  imports: [RouterLink, BadgeModule, CommonModule, CartIconComponent],
   templateUrl: './nav-blank.component.html',
   styleUrl: './nav-blank.component.scss',
 })
@@ -25,6 +26,7 @@ export class NavBlankComponent {
     this.StartAnimation();
     this.delayDisplayVideo();
   }
+
   /** Start animation */
   StartAnimation(): void {
     if (isPlatformBrowser(this.platformId)) {

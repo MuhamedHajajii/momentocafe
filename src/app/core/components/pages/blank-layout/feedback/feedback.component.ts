@@ -40,11 +40,13 @@ export class FeedbackComponent {
   onSubmitRateForm(): void {
     this._HttpClient
       .post(
-        'https://script.google.com/macros/s/AKfycbyOMy5fDhHxIbmIsG6cEuxH-BGLBa4tcUlZHh39UyuwhMVXg4W8ESiniCX7XK1_LEsH/exec',
+        'https://script.google.com/macros/s/AKfycbxCmfNqAsbRh_hQma2K7cV6BRMiasyaj_Kv-Ij8V9vWnEd4ucfEyzIRhc11jiq5uh4/exec',
         JSON.stringify(this.rateForm.value)
       )
       .subscribe({
-        next: (response) => {},
+        next: (response) => {
+          this.alertWithSuccess();
+        },
         error: (error) => {
           console.log(error);
         },

@@ -1,0 +1,79 @@
+@if (Order.length !== 0) {
+<li
+  [ngClass]="{ 'd-none': currentOrder.length == 0 }"
+  class="navLink shopping-cart dropdown"
+>
+  <button
+    class="btn fs-3 pb-0 Text-Secondary position-relative dropdown-toggl"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+  >
+    <i
+      class="pi pi-shopping-cart fs-1 Text-Secondary"
+      pBadge
+      [value]="currentOrder.length"
+      severity="danger"
+    ></i>
+  </button>
+  <ul #dropdown_menu class="dropdown-menu p-0 pt-3" (click)="stopProp($event)">
+    @for (item of Order; track item ; let i = $index) {
+    <li class="mb-2">
+      <div class="row px-3 justify-content-between">
+        <div class="col-6 d-flex justify-content-start align-items-center">
+          <button (click)="deleteItem(i)" class="Text-Main btn">
+            <span><i class="pi pi-trash"></i></span>
+          </button>
+          <span class="border-bottom border-3 text-nowrap">{{
+            item.name
+          }}</span>
+        </div>
+        <div class="col-6 row">
+          <div class="col-8 d-flex justify-content-between align-items-center">
+            <button
+              (click)="decrementCartItem(i, item.count - 1)"
+              class="btn p-1 fs-6 btn-main"
+            >
+              <span><i class="pi pi-minus"></i></span>
+            </button>
+            <span class="mx-1">{{ item.count }}</span>
+            <button
+              (click)="incrementCartItem(i, item.count + 1)"
+              class="btn p-1 fs-6 btn-main"
+            >
+              <span><i class="pi pi-plus"></i></span>
+            </button>
+          </div>
+          <div class="col-4 d-flex justify-content-center align-items-center">
+            <p class="mb-0 text-nowrap">{{ item.Price * item.count }} .LE</p>
+          </div>
+        </div>
+      </div>
+    </li>
+    }
+    <div class="p-3">
+      <div class="card">
+        <p class="row mb-1 justify-content-end">
+          <span class="col-4">Sub Total</span>
+          <span class="col-1">:</span>
+          <span class="col-4"> {{ CartTotalPrice }}.LE </span>
+        </p>
+        <p class="row mb-1 justify-content-end">
+          <span class="col-4">Delivery</span>
+          <span class="col-1">:</span>
+          <span class="col-4">15.LE</span>
+        </p>
+        <p class="row mb-1 justify-content-end">
+          <span class="col-4">Total Price</span>
+          <span class="col-1">:</span>
+          <span class="col-4">{{ CartTotalPrice + 15 }}.LE</span>
+        </p>
+        <div class="text-center">
+          <button (click)="getOrderInfo(dropdown_menu)" class="btn-main my-2">
+            Order now
+          </button>
+        </div>
+      </div>
+    </div>
+  </ul>
+</li>
+}

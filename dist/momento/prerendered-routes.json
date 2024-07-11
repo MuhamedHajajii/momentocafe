@@ -1,6 +1,7 @@
 {
   "routes": [
     "/",
+    "/cart",
     "/delivery",
     "/deliveryAdmin",
     "/feedback",
